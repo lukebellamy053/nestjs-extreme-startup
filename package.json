@@ -6,12 +6,30 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "redis:build": "docker run --name extreme-startup-redis -p 6379:6379 redis",
+    "redis:run": "docker container start extreme-startup-redis"
   },
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/material": "^5.0.6",
+    "@types/bull": "^3.15.5",
+    "@types/redis": "^2.8.32",
+    "axios": "^0.24.0",
+    "bull": "^4.1.0",
+    "express-validator": "^6.13.0",
     "next": "12.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-charts": "^3.0.0-beta.33",
+    "react-dom": "17.0.2",
+    "react-feather": "^2.0.9",
+    "recharts": "^2.1.6",
+    "redis": "^3.1.2",
+    "sass": "^1.43.4",
+    "ts-node": "^10.4.0",
+    "tss-react": "^2.0.1"
   },
   "devDependencies": {
     "@types/node": "16.11.6",

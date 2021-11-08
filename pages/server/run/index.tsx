@@ -57,7 +57,7 @@ export const RunServerPage = ({players, round, scores}) => {
 // @ts-ignore - used by nextjs
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const round = await getRound();
-    if (!round || round === 0) {
+    if (round == null) {
         return {
             redirect: {
                 destination: '/server'

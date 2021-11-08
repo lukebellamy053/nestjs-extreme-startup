@@ -38,7 +38,7 @@ export const QuestionPage: FC<Props> = ({id}) => {
 
 export const getStaticPaths: GetStaticPaths = context => {
     return {
-        paths: Questions.map((q, index) => ({params: {id: `${index + 1}`}})),
+        paths: Questions.map((q, index) => ({params: {id: `${index}`}})),
         fallback: false
     }
 }

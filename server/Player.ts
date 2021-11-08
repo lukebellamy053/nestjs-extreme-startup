@@ -24,7 +24,7 @@ export const removePlayer = async (name: string) => {
     await savePlayers();
 }
 
-export const getRound = () => RedisGet("current-round").then(x => parseInt(x ?? '0'));
+export const getRound = () => RedisGet("current-round").then(x => x != "null" && x != null ? parseInt(x) : null);
 
 const savePlayers = async () => {
     await RedisSaveJSON("players", _players)

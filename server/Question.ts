@@ -1,5 +1,4 @@
-import questions from "../pages/questions";
-import {Questions} from "../consts/questions";
+import {getRandomElement, Questions} from "../consts/questions";
 
 export class Question {
 
@@ -7,7 +6,13 @@ export class Question {
     }
 
     static questionForRound(round: number): Question {
-        const question = Questions[0].transformer();
+        let questionDefinition;
+        if(round > Questions.length) {
+            questionDefinition = getRandomElement(Questions);
+        } else {
+            questionDefinition = Questions[round];
+        }
+        const question = questionDefinition.transformer();
         return new Question(question.question, `${question.answer}`);
     }
 

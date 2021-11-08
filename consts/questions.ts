@@ -3,6 +3,14 @@ const generalKnowledge = require('./general-knowledge.json');
 const stringExamples = ['rat', 'car', 'example', 'apple', 'mouse'];
 export const Questions = [
     {
+        id: 0,
+        title: "Warmup",
+        format: "ping",
+        transformer: function () {
+            return {question: this.format, answer: "pong"};
+        }
+    },
+    {
         id: 1,
         title: "Maths (Addition)",
         format: "What is $num1 + $num2?",
@@ -71,7 +79,10 @@ export const Questions = [
             const num1 = getRandomInt(100);
             const num2 = getRandomInt(100);
             const num3 = getRandomInt(100);
-            return {question: this.format.replace("$num1", `${num1}`).replace("$num2", `${num2}`).replace("$num3", `${num3}`), answer: num1 + num2 + num3}
+            return {
+                question: this.format.replace("$num1", `${num1}`).replace("$num2", `${num2}`).replace("$num3", `${num3}`),
+                answer: num1 + num2 + num3
+            }
         }
     },
     {
@@ -82,20 +93,22 @@ export const Questions = [
             const num1 = getRandomInt(10);
             const num2 = getRandomInt(20);
             const num3 = getRandomInt(30);
-            return {question: this.format
+            return {
+                question: this.format
                     .replace("$num1", `${num1}`)
                     .replace("$num3", `${num3}`)
-                    .replace("$num2", `${num2}`), answer: num1 * num2 * num3}
+                    .replace("$num2", `${num2}`), answer: num1 * num2 * num3
+            }
         }
     },
 ]
 
-function getRandomInt(max: number) {
+export function getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
 }
 
-function getRandomElement(list: Array<any>) {
-    const max = list.length;
+export function getRandomElement(list: Array<any>, _max?: number) {
+    const max = _max ?? list.length;
     const index = getRandomInt(max);
     return list[index > 0 ? index - 1 : 0];
 }
